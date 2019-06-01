@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int rats[1025][1025];
+
+int main() {
+
+	int n,d,num_popu,x,y,size,max=-1;
+	
+	cin>>n;
+	while(n--){
+		
+		cin>>d;
+		cin>>num_popu;
+		
+		for(int i=0;i<1025;i++){
+			for(int j=0;j<1025;j++){
+				rats[i][j] = 0;
+			}
+			
+		}
+		
+		
+		
+		for (int i = 0; i < num_popu; i++) {
+		
+			cin>>x>>y>>size;
+		
+			for (int j = x - d; j <= x + d; j++) {
+				if (j < 0 || j >= 1025)
+					
+					continue;
+
+				for (int k = y - d; k <= y + d; k++) {
+					
+					if (k < 0 || k >= 1025)
+					
+						continue;
+
+					rats[j][k] += size;
+				}
+			}
+		}
+		
+		
+		
+		
+		for (int i = 0; i < 1025; i++) {
+			
+			for (int j = 0; j < 1025; j++) {
+				
+				if (rats[i][j] > max) {
+					
+					x = i;
+					y = j;
+					max = rats[i][j];
+				}
+			}
+		}
+		
+		cout<<x<<" "<<y<<" "<<max<<endl;
+		max=-1;
+		
+	}
+	
+	return 0;
+}

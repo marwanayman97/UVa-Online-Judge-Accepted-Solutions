@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+
+    int n,arr[12][12],sum=0,x=0,ctr=1;
+    
+    scanf("%d",&n);
+    
+	while(n!=0){
+	
+	
+    x=0;
+    int y=n-1;
+    
+    for(int i=0;i<n;i++){
+    	for(int j=0;j<n;j++){
+    		scanf("%d",&arr[i][j]);
+    		
+		}
+	}
+	
+	
+	cout<<"Case "<<ctr<<": ";
+	int t=n/2;
+	
+	while(t--){
+	
+	
+	for(int i=x;i<n;i++){
+		for(int j=x;j<n;j++){
+			if(i==x || i==y ){
+				
+			
+    			sum += arr[i][j];
+    			arr[i][j]=0;
+			}
+				
+			
+		}
+		if((i!=x && i!=y )){
+			
+			
+				sum += arr[i][x];
+				arr[i][x]=0;
+			
+				sum += arr[i][y];
+				arr[i][y]=0;	
+		}
+	}
+	
+	
+	
+	if(n%2==0 && t==0)
+	cout<<sum;
+	else
+	cout<<sum<<" ";
+	
+		x++;
+		y--;
+		sum=0;	
+	}	
+	
+	if(n%2==0 && n>0)
+	cout<<endl;
+	if(n%2!=0)
+	cout<<arr[n/2][n/2]<<endl;
+	
+	
+	ctr++;
+	arr[12][12]={0};
+	scanf("%d",&n);
+	}	
+    
+    
+	return 0;
+}
